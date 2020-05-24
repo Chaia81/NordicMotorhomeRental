@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Delete Customer</title>
+</head>
+<body>
+
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+
+            <li><a href="customerAdministration" class="active">Administration</a></li>
+            <li><a href="createCustomer" class="active">Create Customer</a></li>
+            <!-- <li><a href="editCustomer" class="active">Edit Customer</a></li> -->
+            <li><a href="findCustomer" class="active">Find Customer</a></li>
+            <li><a href="allCustomers" class="active">All Customers</a></li>
+            <!-- <li><a href="deleteCustomer" class="active">Delete Customer</a></li> -->
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>Delete Customer</h1>
+    <h2>Are you sure you want to delete?</h2>
+
+    <form th:action="@{deleteCustomer}" method="post" th:object="${customer}">
+        <input type="hidden" th:field="${customer.cusId}"/>
+        <tr>
+            <th>Id:</th>
+            <span th:text="${customer.cusId}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>First name:</th>
+            <span th:text="${customer.getCusFirstName()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Last name:</th>
+            <span th:text="${customer.getCusLastName()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Phone:</th>
+            <span th:text="${customer.getCusPhone()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Address:</th>
+            <span th:text="${customer.getCusAddress()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Zip:</th>
+            <span th:text="${customer.getCusZip()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>City:</th>
+            <span th:text="${customer.getCusCity()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Drivers license:</th>
+            <span th:text="${customer.getCusDriversLicense()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Email:</th>
+            <span th:text="${customer.getCusEmail()}"></span>
+        </tr>
+        <br>
+        <br>
+        <button type="submit" value="Submit" class="btn btn-del w">Delete</button>
+        <a href="/customerAdministration" class="btn btn-del w" type="submit">No</a>
+    </form>
+</div>
+
+</body>
+</html>

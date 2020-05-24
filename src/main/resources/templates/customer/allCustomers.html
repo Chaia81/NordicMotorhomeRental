@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>List of customers</title>
+</head>
+<body>
+
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+
+            <li><a href="customerAdministration" class="active">Administration</a></li>
+            <li><a href="createCustomer" class="active">Create Customer</a></li>
+            <!-- <li><a href="editCustomer" class="active">Edit Customer</a></li> -->
+            <li><a href="findCustomer" class="active">Find Customer</a></li>
+            <li><a href="allCustomers" class="active">All Customers</a></li>
+            <!-- <li><a href="deleteCustomer" class="active">Delete Customer</a></li> -->
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>All customers</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Zip</th>
+            <th>City</th>
+            <th>Drivers License Number</th>
+            <th>Email</th>
+        </tr>
+
+        <tr th:each="customer : ${customers}">
+            <td th:text="${customer.cusId}"></td>
+            <td th:text="${customer.cusFirstName}"></td>
+            <td th:text="${customer.cusLastName}"></td>
+            <th th:text="${customer.cusPhone}"></th>
+            <td th:text="${customer.cusAddress}"></td>
+            <td th:text="${customer.cusZip}"></td>
+            <td th:text="${customer.cusCity}"></td>
+            <td th:text="${customer.cusDriversLicense}"></td>
+            <td th:text="${customer.cusEmail}"></td>
+
+            <!-- <td> -->
+                <!-- <a th:href="@{/student(id=${student.id})}"><button class="btn">Details</button></a> -->
+                <!--
+                <a th:href="@{/details(id=${student.id})}">
+                    <button class="btn btn-details">Details</button>
+                </a>
+                <a th:href="@{/updateStudent(id=${student.id})}">
+                    <button class ="btn btn-ed">Edit</button>
+                </a>
+                <a th:href="@{/deleteStudent(id=${student.id})}">
+                    <button class="btn btn-del">Delete</button>
+                </a>
+                -->
+                <!-- </a> -->
+            <!-- </td> -->
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>

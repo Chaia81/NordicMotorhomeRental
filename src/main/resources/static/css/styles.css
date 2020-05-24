@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* ------------------------------------ */
+/*          Navigation styles           */
+/* ------------------------------------ */
+
+nav {
+    /* background-color: #222;*/
+    margin-bottom: 50px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+/* ---------- Link styles ---------- */
+
+ul {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    list-style-type: none;
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    border-right: 1px solid #bbb;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* ---------- Hover styles ---------- */
+
+li a:hover {
+    background-color: #dd1010;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+.active {
+    background-color: #111;
+}
+
+/* ------------------------------------ */
+/*           Container styles           */
+/* ------------------------------------ */
+
+.container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
+/* ------------------------------------ */
+/*           Container styles           */
+/* ------------------------------------ */
+
+h1 {
+    margin-bottom: 10px;
+}
+
+/* ------------------------------------ */
+/*             Table styles             */
+/* ------------------------------------ */
+
+
+table {
+    border-collapse: collapse; /*https://www.w3schools.com/CSSref/tryit.asp?filename=trycss_border-collapse3*/
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 5px 8px 5px 8px; /*https://www.w3schools.com/csS/css_padding.asp*/
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/* ---------- Input fields ---------- */
+
+input {
+    display: block;
+    width: 50%;
+    padding: .5rem .75rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}
