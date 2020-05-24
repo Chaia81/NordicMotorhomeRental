@@ -98,8 +98,18 @@ public class CustomerController {
     +----------------------------------+
     */
 
+    @GetMapping("/editCustomer")
+    public String editCustomer(Model model, @RequestParam int cusId){
+        CustomerDTO customer = customerRepository.read(cusId);
+        model.addAttribute("customer", customer);
+        return "customer/editCustomer";
+    }
 
-
+    @PostMapping("/editCustomer")
+     public String updateCustomer(@ModelAttribute CustomerDTO customer){
+        customerRepository.edit(customer);
+        return "redirect:/customerAdministration";
+    }
 
     /*
     +----------------------------------+

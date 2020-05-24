@@ -12,22 +12,26 @@ import java.util.List;
 
 public class CustomerRepositoryImpl implements ICustomerRepository {
     private Connection conn;
-    private static final String CREATE_USER_SQL = "INSERT INTO customer" + "(cus_id, cus_first_name, cus_last_name, cus_phone, cus_address, cus_zip, cus_city, cus_drivers_license_number, cus_email) VALUES" + "(?,?,?,?,?,?,?,?,?);";
-    // private static final String SQL_SELECT = "SELECT * FROM customer"; // Testing search
+    private static final String CREATE_CUSTOMER_SQL = "INSERT INTO customer" + "(cus_id, cus_first_name, cus_last_name, cus_phone, cus_address, cus_zip, cus_city, cus_drivers_license_number, cus_email) VALUES" + "(?,?,?,?,?,?,?,?,?);";
+    private static final String EDIT_CUSTOMER_SQL = "UPDATE customer SET cus_first_name =?, cus_last_name =?, cus_phone =?, cus_address =?, cus_zip =?, cus_city =?, cus_drivers_license_number =?, cus_email =? WHERE cus_id=?;";
+    private static final String DELETE_CUSTOMER_SQL = "DELETE FROM customer WHERE cus_id =?";
+
 
     public CustomerRepositoryImpl() {
         this.conn = DatabaseConnectionManager.getDatabaseConnection();
     }
 
-    /* ------------------------------------- */
-    /*            Create customer            */
-    /* ------------------------------------- */
+    /*
+    +----------------------------------+
+    |         Create customer          |
+    +----------------------------------+
+    */
 
     @Override
     public void create(CustomerDTO customer) {
         try {
 
-            PreparedStatement prep = conn.prepareStatement(CREATE_USER_SQL);
+            PreparedStatement prep = conn.prepareStatement(CREATE_CUSTOMER_SQL);
             {
                 prep.setInt(1, customer.getCusId());
                 prep.setString(2, customer.getCusFirstName());
@@ -48,9 +52,11 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
 
     }
 
-    /* ------------------------------------- */
-    /*             Find customer             */
-    /* ------------------------------------- */
+    /*
+    +---------------------------------+
+    |          Find customer          |
+    +---------------------------------+
+    */
 
     @Override
     public CustomerDTO read(int cusId) {
@@ -77,9 +83,11 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         return customerToReturn;
     }
 
-    /* ------------------------------------- */
-    /*           See all customers           */
-    /* ------------------------------------- */
+    /*
+    +----------------------------------+
+    |          See all customers       |
+    +----------------------------------+
+    */
 
     @Override
     public List<CustomerDTO> readAll() {
@@ -111,13 +119,56 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         return allCustomers;
     }
 
-    @Override
-    public void update(CustomerDTO customerDTO) {
+        /*
+    +----------------------------------+
+    |          Edit customer          |
+    +----------------------------------+
+    */
 
+    @Override
+    public void edit(CustomerDTO customerDTO) {
+        try {
+
+            PreparedStatement prep = conn.prepareStatement(EDIT_CUSTOMER_SQL);
+
+            prep.setString(1, customerDTO.getCusFirstName());
+            prep.setString(2, customerDTO.getCusLastName());
+            prep.setInt(3, customerDTO.getCusPhone());
+            prep.setString(4, customerDTO.getCusAddress());
+            prep.setInt(5, customerDTO.getCusZip());
+            prep.setString(6, customerDTO.getCusCity());
+            prep.setInt(7, customerDTO.getCusDriversLicense());
+            prep.setString(8, customerDTO.getCusEmail());
+            prep.setInt(9, customerDTO.getCusId());
+            prep.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+
+
     @Override
-    public void delete(int id) {
+    public void delete(int cusId) {
+
+        try {
+            PreparedStatement prep = conn.prepareStatement(DELETE_CUSTOMER_SQL);
+
+            prep.setInt(1, cusId);
+            prep.executeUpdate();
+
+
+
+
+            {
+
+
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
 
     }
 }

@@ -1,10 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Edit customer</title>
 </head>
 <body>
 
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+
+            <li><a href="customerAdministration" class="active">Administration</a></li>
+            <li><a href="createCustomer" class="active">Create Customer</a></li>
+            <!-- <li><a href="editCustomer" class="active">Edit Customer</a></li> -->
+            <li><a href="findCustomer" class="active">Find Customer</a></li>
+            <li><a href="allCustomers" class="active">All Customers</a></li>
+            <!-- <li><a href="deleteCustomer" class="active">Delete Customer</a></li> -->
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>Edit Customer</h1>
+
+    <form class ="container" th:action="@{/editCustomer}" th:object="${customer}" method="post">
+        <!--<input type="hidden" name="cus_id" th:value="${customer.getCusId()}"/>-->
+        <input type="hidden" th:field="${customer.cusId}"/>
+        <!--<p th:text="${student.id}"></p>-->
+
+
+        <br>
+        <tr>
+            <th>First Name</th>
+            <td><input type="text" th:field="*{cusFirstName}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Last Name</th>
+            <td><input type="text" th:field="*{cusLastName}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Phone Number</th>
+            <td><input type="text" th:field="*{cusPhone}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Address</th>
+            <td><input type="text" th:field="*{cusAddress}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Zip Code</th>
+            <td><input type="text" th:field="*{cusZip}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>City</th>
+            <td><input type="text" th:field="*{cusCity}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Drivers License Number</th>
+            <td><input type="text" th:field="*{cusDriversLicense}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Email</th>
+            <td><input type="text" th:field="*{cusEmail}"/></td>
+        </tr>
+        <br>
+
+        <input type="submit" value="Update" class="btn btn-create">
+    </Form>
+</div>
 </body>
 </html>
