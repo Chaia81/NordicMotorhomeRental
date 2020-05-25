@@ -16,6 +16,6 @@ public interface ICustomerRepository {
 
     public void edit(CustomerDTO customer);
 
-    public void delete(int id);
+    public void delete(int cusId);
 
 }

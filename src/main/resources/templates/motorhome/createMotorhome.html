@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Title</title>
+</head>
+<body>
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+            <li><a href="/" class="active">Nordic Motorhome Rental</a></li>
+            <li><a href="customerAdministration" class="active">Customer Administration</a></li>
+            <li><a href="motorhomeAdministration" class="active">Motorhome Administration</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>Create Motorhome</h1>
+
+    <form th:action="@{/createMotorhome}" th:object="${motorhome}" method="post">
+
+        <!--<table> -->
+        <tr>
+            <th>Brand:</th>
+            <td>
+                <label>
+                    <input type="text" th:field="*{brand}" placeholder="Brand"/>
+                </label>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>Model:</th>
+            <td>
+                <label>
+                    <input type="text" th:field="*{model}" placeholder="Model"/>
+                </label>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>Type:</th>
+            <td>
+                <label>
+                    <input type="text" th:field="*{type}" placeholder="Type"/>
+                </label>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>Description:</th>
+            <td>
+                <label>
+                    <input type="text" th:field="*{description}" placeholder="Description"/>
+                </label>
+            </td>
+        </tr>
+        <br>
+        <tr>
+            <th>Price:</th>
+            <td>
+                <label>
+                    <input type="text" th:field="*{price}" placeholder="Price"/>
+                </label>
+            </td>
+        </tr>
+
+        <!-- </table> -->
+        <br>
+        <input type="submit" value="Create Motorhome">
+    </form>
+</div>
+
+</body>
+</html>

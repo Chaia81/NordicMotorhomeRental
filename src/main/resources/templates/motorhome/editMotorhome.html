@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Edit Motorhome</title>
+</head>
+<body>
+
+
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+            <li><a href="/" class="active">Nordic Motorhome Rental</a></li>
+            <li><a href="customerAdministration" class="active">Customer Administration</a></li>
+            <li><a href="motorhomeAdministration" class="active">Motorhome Administration</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>Edit Motorhome</h1>
+
+    <form class ="container" th:action="@{/editMotorhome}" th:object="${motorhome}" method="post">
+        <!--<input type="hidden" name="cus_id" th:value="${customer.getCusId()}"/>-->
+        <input type="hidden" th:field="${motorhome.motorhomeId}"/>
+        <!--<p th:text="${student.id}"></p>-->
+
+
+        <br>
+        <tr>
+            <th>Brand</th>
+            <td><input type="text" th:field="*{brand}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Model</th>
+            <td><input type="text" th:field="*{model}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Type</th>
+            <td><input type="text" th:field="*{type}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>Description</th>
+            <td><input type="text" th:field="*{description}"/></td>
+        </tr>
+        <br>
+        <tr>
+            <th>price</th>
+            <td><input type="text" th:field="*{price}"/></td>
+        </tr>
+
+        <br>
+
+        <input type="submit" value="Update" class="btn btn-create">
+    </Form>
+</div>
+
+</body>
+</html>

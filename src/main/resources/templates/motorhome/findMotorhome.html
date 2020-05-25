@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Find Motorhome</title>
+</head>
+<body>
+
+
+
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+            <li><a href="/" class="active">Nordic Motorhome Rental</a></li>
+            <li><a href="customerAdministration" class="active">Customer Administration</a></li>
+            <li><a href="motorhomeAdministration" class="active">Motorhome Administration</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+    <h1>Find Motorhome</h1>
+
+    <form th:action="@{/getMotorhomeById}" th:object="${motorhome}" method="post">
+        <tr>
+            <th>Indtast id:</th>
+            <!--<input type="text" name="cusId" id="search" th:value="${cusId}" placeholder="Id"/> th:field="*{cusId}"-->
+            <input type="text" th:field="*{motorhomeId}" placeholder="Id" />
+            <input type="submit" value="Search"/>
+        </tr>
+    </form>
+
+    <div>
+        <span th:if="${motorhome.getMotorhomeId() != 0}">
+            <br>
+            <h2>Motorhome details</h2>
+            <tr>
+                <th>Id:</th>
+                <span th:text="${motorhome.getMotorhomeId()}"></span>
+            </tr>
+            <br>
+            <tr>
+                <th>Brand:</th>
+                <span th:text="${motorhome.getBrand()}"></span>
+            </tr>
+            <br>
+            <tr>
+                <th>Model:</th>
+                <span th:text="${motorhome.getModel()}"></span>
+            </tr>
+            <br>
+            <tr>
+                <th>Type:</th>
+                <span th:text="${motorhome.getType()}"></span>
+            </tr>
+            <br>
+            <tr>
+                <th>Description:</th>
+                <span th:text="${motorhome.getDescription()}"></span>
+            </tr>
+            <br>
+            <tr>
+                <th>Price:</th>
+                <span th:text="${motorhome.getPrice()}"></span>
+            </tr>
+
+            <br>
+            <br>
+            <a th:href="@{/editMotorhome(motorhomeId=${motorhome.getMotorhomeId()})}">
+                <button class="btn btn-ed">Edit</button>
+            </a>
+            <a th:href="@{/deleteMotorhome(motorhomeId=${motorhome.getMotorhomeId()})}"><!-- th:target="_blank"> -->
+                <button class="btn btn-del" >Delete</button>
+            </a>
+
+        </span>
+        <!-- <span th:if="${customer.getCusId() == 0}">Ingen kunder med det id</span> -->
+    </div>
+</div>
+
+</body>
+</html>

@@ -119,7 +119,7 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         return allCustomers;
     }
 
-        /*
+    /*
     +----------------------------------+
     |          Edit customer          |
     +----------------------------------+
@@ -147,6 +147,11 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
         }
     }
 
+    /*
+    +----------------------------------+
+    |          Delete customer         |
+    +----------------------------------+
+    */
 
 
     @Override

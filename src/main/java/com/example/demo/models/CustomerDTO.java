@@ -1,15 +1,15 @@
 package com.example.demo.models;
 
 public class CustomerDTO {
-    int cusId;
-    String cusFirstName;
-    String cusLastName;
-    int cusPhone;
-    String cusAddress;
-    int cusZip;
-    String cusCity;
-    int cusDriversLicense;
-    String cusEmail;
+    private int cusId;
+    private String cusFirstName;
+    private String cusLastName;
+    private int cusPhone;
+    private String cusAddress;
+    private int cusZip;
+    private String cusCity;
+    private int cusDriversLicense;
+    private String cusEmail;
 
     public CustomerDTO() {
 

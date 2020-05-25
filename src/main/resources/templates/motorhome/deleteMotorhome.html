@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Delete Motorhome</title>
+</head>
+<body>
+
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+            <li><a href="/" class="active">Nordic Motorhome Rental</a></li>
+            <li><a href="customerAdministration" class="active">Customer Administration</a></li>
+            <li><a href="motorhomeAdministration" class="active">Motorhome Administration</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>Delete Motorhome</h1>
+    <h2>Are you sure you want to delete?</h2>
+
+    <form th:action="@{deleteMotorhome}" method="post" th:object="${motorhome}">
+        <input type="hidden" th:field="${motorhome.motorhomeId}"/>
+        <tr>
+            <th>Id:</th>
+            <span th:text="${motorhome.motorhomeId}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Brand:</th>
+            <span th:text="${motorhome.getBrand()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Model:</th>
+            <span th:text="${motorhome.getModel()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Type:</th>
+            <span th:text="${motorhome.getType()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Description:</th>
+            <span th:text="${motorhome.getDescription()}"></span>
+        </tr>
+        <br>
+        <tr>
+            <th>Price:</th>
+            <span th:text="${motorhome.getPrice()}"></span>
+        </tr>
+
+        <br>
+        <br>
+        <button type="submit" value="Submit" class="btn btn-del w">Delete</button>
+        <a href="/motorhomeAdministration" class="btn btn-del w" type="submit">No</a>
+    </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>List of all motorhomes</title>
+</head>
+<body>
+
+<!-- Header Section -->
+
+<header>
+
+    <!-- Navigation Bar -->
+
+    <nav>
+
+        <ul>
+            <li><a href="/" class="active">Nordic Motorhome Rental</a></li>
+            <li><a href="customerAdministration" class="active">Customer Administration</a></li>
+            <li><a href="motorhomeAdministration" class="active">Motorhome Administration</a></li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<div class="container">
+    <h1>All Motorhomes</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+
+        <tr th:each="motorhome : ${motorhomes}">
+            <td th:text="${motorhome.motorhomeId}"></td>
+            <td th:text="${motorhome.brand}"></td>
+            <td th:text="${motorhome.model}"></td>
+            <th th:text="${motorhome.type}"></th>
+            <td th:text="${motorhome.description}"></td>
+            <td th:text="${motorhome.price}"></td>
+
+            <!-- <td> -->
+            <!-- <a th:href="@{/student(id=${student.id})}"><button class="btn">Details</button></a> -->
+            <!--
+            <a th:href="@{/details(id=${student.id})}">
+                <button class="btn btn-details">Details</button>
+            </a>
+            <a th:href="@{/updateStudent(id=${student.id})}">
+                <button class ="btn btn-ed">Edit</button>
+            </a>
+            <a th:href="@{/deleteStudent(id=${student.id})}">
+                <button class="btn btn-del">Delete</button>
+            </a>
+            -->
+            <!-- </a> -->
+            <!-- </td> -->
+
+        </tr>
+    </table>
+</div>
+</body>
+</html>
